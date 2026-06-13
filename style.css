@@ -254,7 +254,7 @@ input:-webkit-autofill:focus {
 
 @media screen and (min-width: 992px) {
    .section-title {
-        width: 50%;
+        width: 60%;
         margin: 0 auto 35px;
    }
 
@@ -351,8 +351,8 @@ img {
 }
 
 .section-padding {
-  padding-top: 140px;
-  padding-bottom: 140px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .padding-left-100 {
     padding-left: 100px;
@@ -566,8 +566,20 @@ img {
     background-image: url("assets/img/cover-5.jpg");  
 }
 
-.banner-6 {
-    background-image: url("assets/img/cover-6.jpg");  
+.banner-partnership-evaluation {
+    background-image: url("assets/img/partnership.jpg");
+}
+
+.banner-private-overlap {
+    background-image: url("assets/img/overlap.jpg");
+}
+
+.banner-vendor-data-lift {
+    background-image: url("assets/img/growth.jpg");
+}
+
+.banner-open-sharing {
+    background-image: url("assets/img/cover-1.jpg");  /* placeholder — swap for assets/img/open-sharing.jpg */
 }
 
 
@@ -605,6 +617,19 @@ img {
 
 
 /* ================ Bootsnav Customization ================== */
+
+/* When the header is solid by default (not the scroll-reveal transparent nav),
+   reserve its height so the first section starts below the fixed bar instead of
+   tucking underneath it. Paired with the `solid_nav` page flag. */
+body.solid-nav {
+    padding-top: 81px;
+}
+/* `.navbar-fixed` is position:fixed but sets no `top`, so it keeps its static
+   position and the padding above would drag it down. Pin it to the viewport top
+   so the padding reserves space for the bar and only the content shifts down. */
+body.solid-nav .navbar-fixed {
+    top: 0;
+}
 
 @media (min-width: 1010px) {
     nav.navbar.bootsnav.navbar-fixed {
@@ -1549,10 +1574,183 @@ body.no-lines .l2 {
     width: 200px;
 }
 
+/* ================ Waitlist form (Formspree fs-*) ================== */
+.fs-form {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 14px;
+    padding: 38px 38px 32px;
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
+    text-align: left;
+}
+.fs-form fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;            /* let grid items shrink instead of overflowing */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 22px;
+    row-gap: 20px;
+    align-items: end;        /* line inputs up even if a label wraps */
+}
+.fs-fieldset-title {
+    display: none;          /* heading is already shown above the form */
+}
+.fs-field {
+    min-width: 0;           /* key fix: stops long values from widening a column */
+    display: flex;
+    flex-direction: column;
+}
+.col-span-full {
+    grid-column: 1 / -1;
+}
+.fs-label {
+    color: #2b2b2b;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 7px;
+    letter-spacing: .2px;
+}
+.fs-input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    background: #fafafa;
+    color: #2b2b2b;
+    font-size: 15px;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.fs-input::placeholder {
+    color: #9a9a9a;
+}
+.fs-input:focus {
+    outline: none;
+    background: #fff;
+    border-color: #ff5a00;
+    box-shadow: 0 0 0 3px rgba(255, 90, 0, 0.12);
+}
+.fs-checkbox-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-top: 7px important!;
+}
+.fs-label:has(+ .fs-checkbox-list) {
+    margin-bottom: 0;
+}
+.fs-checkbox-field {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 11px;
+}
+.fs-checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+.fs-checkbox {
+    -webkit-appearance: none;
+    appearance: none;
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 7px !important;        /* drop the box past the label's half-leading so its top meets the text cap-top */
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease;
+}
+.fs-checkbox:checked {
+    background-color: #ff5a00;
+    border-color: #ff5a00;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.fs-checkbox:focus-visible {
+    outline: 3px solid rgba(255, 90, 0, 0.35);
+    outline-offset: 0;
+}
+.fs-checkbox-field .fs-label {
+    margin-bottom: 2px;
+    cursor: pointer;
+}
+.fs-description {
+    color: #777;
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.45;
+}
+.fs-button-group {
+    margin-top: 26px;
+    text-align: center;
+}
+.fs-button {
+    background: linear-gradient(to right, #ef0b00, #ff7e00);
+    color: #fff;
+    border: 0;
+    border-radius: 30px;
+    height: 54px;
+    padding: 0 50px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: .3px;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.fs-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(239, 11, 0, 0.3);
+}
+@media screen and (max-width: 600px) {
+    .fs-form {
+        padding: 28px 22px;
+    }
+    .fs-form fieldset {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+
+/* ================ Preloader (status message) ================== */
 .status-mes {
     background: none;
     left: 0;
     margin: 0;
     text-align: center;
     top: 65%;
+}
+
+
+/* ================ Check list (feature / output bullets) ================== */
+.check-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.check-list li {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 14px;
+    line-height: 1.6;
+}
+.check-list li:before {
+    content: "\f00c"; /* font-awesome check */
+    font-family: "FontAwesome";
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: #6c4cf1;
+}
+.check-list.check-list-light li,
+.check-list.check-list-light li:before {
+    color: #fff;
 }
