@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="invocate adds a programmable escrow layer to OpenSharing — authorizing not just who can access an
+asset, but what they can compute, retrieve, or learn from it.">
+        <meta name="keywords" content="OpenSharing, programmable authorization, data sharing, escrow agent, AI agent data access, governed
+data, data clean room, Databricks, Snowflake">
+
+        
+        
+        <meta name="robots" content="index, follow">
+        
+
+        <title>Programmable authorization for shared data | invocate</title>
+
+
+        <!--  favicon -->
+        <link rel="shortcut icon" href="assets/img/ico/favicon.png">
+        <!--  apple-touch-icon -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/img/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/img/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/img/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/img/ico/apple-touch-icon-57-precomposed.png">
+
+        <!-- Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">     
+        <!-- Font Icons -->
+        <link href="assets/fonts/flat-icon/flaticon.css" rel="stylesheet">
+        <link href="assets/fonts/font-awesome/font-awesome.min.css" rel="stylesheet">
+        <!-- animate css -->
+        <link href="assets/css/animate.css" rel="stylesheet">
+        <!-- owl.carousel -->
+        <link href="assets/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
+        <link href="assets/owl.carousel/assets/owl.theme.default.min.css" rel="stylesheet">
+        <!-- Bootsnav Menu -->
+        <link rel="stylesheet" href="assets/css/bootsnav.css" media="all" />
+        <!-- Bootstrap -->
+        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Main CSS -->
+        <link href="style.css" rel="stylesheet">
+
+        <script>
+            !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="$i ji init en nn Ar tn an Yi capture calculateEventProperties dn register register_once register_for_session unregister unregister_for_session gn getFeatureFlag getFeatureFlagPayload getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync mn identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty fn hn createPersonProfile setInternalOrTestUser pn Ji opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing un debug Dr vn getPageViewId captureTraceFeedback captureTraceMetric Zi".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+            posthog.init('phc_wHGaXvqtbzmjxWxuodSsJzt3z93xbTkEuJZ4j3SmGwxn', {
+                api_host: 'https://us.i.posthog.com',
+                defaults: '2026-05-30',
+                person_profiles: 'always',
+            })
+        </script>
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+
+    <body class="no-lines ">
+
+        <div class="main-wrapper">
+
+            <!--header start-->
+            <header>
+                <!-- Start Navigation -->
+                <nav class="navbar navbar-default navbar-fixed white no-background bootsnav">
+                    <div class="container">
+                        <!-- Start Header Navigation -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <a class="navbar-brand" href="index.html">
+                                <img src="assets/img/logo-white.png" class="logo logo-display" alt="">
+                                <img src="assets/img/logo.png" class="logo logo-scrolled" alt="">
+                            </a>
+                        </div>
+                        <!-- End Header Navigation -->
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="navbar-menu">
+                            <ul class="nav navbar-nav navbar-right" data-in="" data-out="">
+                                <li>
+                                    <a href="index.html#about" >About Us</a>
+                                </li>
+
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div>
+                </nav>
+                <!-- End Navigation -->
+                <div class="clearfix"></div>
+            </header>
+            <!--header end-->
+
+           <!--main-->
+           
+
+<!-- Hero Section -->
+<section class="banner-open-sharing parallax-bg bg-fixed overlay dark-5 height-600 valign-wrapper no-vertical-lines"
+    data-stellar-background-ratio="0.5">
+    <div class="valign-cell">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-10 col-md-offset-1">
+                    <span class="hero-sub white-text wow fadeInUp">OpenSharing &times; invocate</span>
+                    <h1 class="hero-intro big-text white-text wow fadeInUp">Share Data Through Programmable
+                        Authorization</h1>
+                    <p class="section-sub white-text wow fadeInUp">OpenSharing makes it easier for companies to share
+                        governed
+                        data assets across platforms. invocate adds a programmable escrow agent that can authorize data
+                        use at
+                        a much finer level: not only who can access an asset, but what they are allowed to compute,
+                        retrieve,
+                        or learn from it.</p>
+                </div><!-- col-md-10 -->
+            </div><!-- row -->
+        </div><!-- /.container -->
+    </div><!-- /.valign-cell -->
+</section>
+<!-- Hero Section End -->
+
+
+<!-- From data access to data-aware authorization -->
+<section class="padding-top-140 padding-bottom-70 no-vertical-lines">
+    <div class="container">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro wow fadeInUp">The shift</span>
+            <h2 class="section-title wow fadeInUp">From data access to data-aware authorization</h2>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p class="wow fadeInUp">Protocols like OpenSharing give providers a standard way to expose shares,
+                    schemas,
+                    tables, models, and other assets to external recipients. That is useful, but many collaborations
+                    need
+                    more than asset-level access.</p>
+                <p class="wow fadeInUp">As a provider, you may want to say: <em>&ldquo;This recipient, application, or
+                        AI agent can use
+                        this data — but only for approved purposes, through approved computations, and only when the
+                        resulting
+                        output satisfies our release rules.&rdquo;</em></p>
+                <p class="wow fadeInUp">That is what invocate enables. A provider can authorize an escrow agent to
+                    access data,
+                    run computation, evaluate contractual constraints, and decide whether a particular request should be
+                    approved.</p>
+                <p class="wow fadeInUp">The data user still gets a familiar sharing experience. The provider gets more
+                    precise
+                    control over what uses are allowed.</p>
+            </div><!-- /.col-md-8 -->
+        </div><!-- /.row -->
+    </div>
+</section>
+
+
+<!-- Why this matters -->
+<section class="no-vertical-lines section-padding blue-violet-bg">
+    <div class="container">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro white-text wow fadeInUp">Why this matters</span>
+            <h2 class="section-title white-text wow fadeInUp">data sharing is becoming more dynamic</h2>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p class="white-text wow fadeInUp">AI agents need to query enterprise data on behalf of users.
+                    Applications
+                    need to compute signals from sensitive datasets. Partners need to evaluate whether data is useful
+                    before
+                    broader access is granted. Providers need to enforce policies that depend on the actual data, the
+                    computation being run, and the result being produced.</p>
+                <p class="white-text wow fadeInUp">Traditional access control asks: <em>&ldquo;Is this recipient allowed
+                        to
+                        read this asset?&rdquo;</em></p>
+                <p class="white-text wow fadeInUp">invocate asks: <em>&ldquo;Is this request allowed, given the data,
+                        the
+                        computation, the requester, the policy, and the output?&rdquo;</em></p>
+                <p class="white-text wow fadeInUp">That shift makes more advanced forms of data sharing possible.</p>
+            </div><!-- /.col-md-8 -->
+        </div><!-- /.row -->
+    </div>
+</section>
+
+
+<!-- Three things invocate adds to OpenSharing -->
+<section class="section-padding">
+    <div class="container">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro wow fadeInUp">What invocate adds</span>
+            <h2 class="section-title wow fadeInUp">What invocate adds to OpenSharing</h2>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 featured-item iconleft wow fadeInUp">
+                <div class="icon brand-color">
+                    <i class="flaticon-network"></i>
+                </div>
+                <div class="desc">
+                    <h2>1. Programmable authorization for AI agents</h2>
+                    <p>AI agents make static access control difficult. An agent may need to inspect data, call tools,
+                        combine
+                        sources, produce summaries, or answer questions on behalf of a user. But giving an agent broad
+                        access
+                        to a dataset can create unacceptable leakage, compliance, or business risks.</p>
+                    <p>invocate gives providers a governed interface for agent access. The agent can request
+                        computations or
+                        answers. The escrow agent evaluates the request, runs the approved computation, checks the
+                        result, and
+                        releases only what satisfies the provider&rsquo;s policies. This lets organizations enable AI
+                        access to
+                        shared data without turning every agent action into a manual approval process.</p>
+                </div>
+            </div><!-- /.col-md-10 -->
+        </div><!-- /.row -->
+
+        <div class="row margin-top-50">
+            <div class="col-md-10 col-md-offset-1 featured-item iconleft wow fadeInUp">
+                <div class="icon brand-color">
+                    <i class="flaticon-calculator"></i>
+                </div>
+                <div class="desc">
+                    <h2>2. Share computations, not just data assets</h2>
+                    <p>OpenSharing makes it possible to expose governed assets. invocate makes it possible to expose
+                        governed
+                        functions of those assets: answers, aggregates, scores, evaluations, reports, model outputs, or
+                        other
+                        approved results.</p>
+                    <p>The recipient does not always need raw access to the underlying data. In many cases, they need
+                        the
+                        result of a computation over that data. For example, instead of giving a partner direct access
+                        to a
+                        table, a provider may allow the partner to run an approved analysis and receive only the
+                        resulting
+                        metric, summary, or decision signal.</p>
+                </div>
+            </div><!-- /.col-md-10 -->
+        </div><!-- /.row -->
+
+        <div class="row margin-top-50">
+            <div class="col-md-10 col-md-offset-1 featured-item iconleft wow fadeInUp">
+                <div class="icon brand-color">
+                    <i class="flaticon-balance"></i>
+                </div>
+                <div class="desc">
+                    <h2>3. Data-driven authorization decisions</h2>
+                    <p>Some authorization decisions cannot be made from metadata alone. Whether a request is safe may
+                        depend on
+                        the actual rows involved, the distribution of values, the sensitivity of the fields, the number
+                        of
+                        affected individuals, the relationship between multiple datasets, or the output produced by a
+                        computation.</p>
+                    <p>invocate makes authorization data-aware. Because the escrow agent can read the data and run
+                        computation
+                        under contract, it can evaluate conditions such as:</p>
+                    <ul class="check-list">
+                        <li>Is the result sufficiently aggregated?</li>
+                        <li>Does the output reveal information about a small group?</li>
+                        <li>Does the request involve restricted fields?</li>
+                        <li>Does the computation combine data in a prohibited way?</li>
+                        <li>Does the answer expose more than the provider intended?</li>
+                        <li>Does this agent action satisfy the provider&rsquo;s data release preferences?</li>
+                    </ul>
+                    <p>This enables a more advanced form of authorization: one that depends not just on identity and
+                        role, but
+                        on the data and computation themselves.</p>
+                </div>
+            </div><!-- /.col-md-10 -->
+        </div><!-- /.row -->
+    </div>
+</section>
+
+
+<!-- Example use cases -->
+<section class="section-padding blue-bg no-vertical-lines">
+    <div class="container">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro white-text wow fadeInUp">use cases</span>
+            <h2 class="section-title white-text wow fadeInUp">What Programmable Authorization Unlocks</h2>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3 class="white-text wow fadeInUp">AI agent access to shared data</h3>
+                <p class="white-text wow fadeInUp">A provider wants AI agents to use its data, but not to freely extract
+                    records, sensitive fields, or uncontrolled summaries. With invocate, the provider can expose a
+                    governed
+                    interface to the agent. The agent can request answers or computations, while the escrow agent checks
+                    whether each result is allowed before anything is released. This enables enterprises to support
+                    agentic
+                    workflows without granting agents open-ended data access.</p>
+
+                <h3 class="white-text margin-top-50 wow fadeInUp">Governed evaluation</h3>
+                <p class="white-text wow fadeInUp">A partner wants to evaluate a dataset, model, feature, API, or
+                    business
+                    signal. Instead of granting broad access, the provider allows invocate to run an approved
+                    evaluation. The
+                    escrow agent computes the result and releases only the permitted metrics, summaries, or findings.
+                    The
+                    partner learns whether the asset is useful. The provider avoids unnecessary exposure of the
+                    underlying
+                    data.</p>
+
+                <h3 class="white-text margin-top-50 wow fadeInUp">Data-aware approval workflows</h3>
+                <p class="white-text wow fadeInUp">A company wants authorization decisions that depend on the content of
+                    the
+                    data itself. For example, access may be allowed only if the requested output is sufficiently
+                    aggregated,
+                    excludes restricted fields, meets a contractual threshold, or does not reveal information about a
+                    sensitive
+                    subgroup. invocate can evaluate those conditions inside the escrow environment and approve or deny
+                    the
+                    request based on the actual computation and output.</p>
+            </div><!-- /.col-md-8 -->
+        </div><!-- /.row -->
+    </div>
+</section>
+
+
+<!-- How it works -->
+<section class="section-padding">
+    <div class="container">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro wow fadeInUp">How it works</span>
+            <h2 class="section-title wow fadeInUp">From request to approved output</h2>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <ol class="how-it-works-list wow fadeInUp">
+                    <li>A provider exposes data assets through OpenSharing or another controlled interface.</li>
+                    <li>invocate is authorized as the escrow agent.</li>
+                    <li>A data user, application, or AI agent makes a request.</li>
+                    <li>invocate evaluates the request against the provider&rsquo;s data release preferences and
+                        contract.</li>
+                    <li>invocate reads the necessary data and runs the approved computation.</li>
+                    <li>The escrow agent checks whether the result satisfies the release rules.</li>
+                    <li>The approved output is returned to the data user through a familiar interface.</li>
+                </ol>
+                <p class="margin-top-30 wow fadeInUp"><strong>Important:</strong> data remains encrypted end-to-end,
+                    including
+                    during computation.</p>
+            </div><!-- /.col-md-8 -->
+        </div><!-- /.row -->
+    </div>
+</section>
+
+
+<!-- The result -->
+<section class="no-vertical-lines section-padding blue-violet-bg">
+    <div class="container">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro white-text wow fadeInUp">The result</span>
+            <h2 class="section-title white-text wow fadeInUp">Asset access becomes programmable, data-aware
+                authorization</h2>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <p class="white-text wow fadeInUp">Providers can participate in more data collaborations without
+                    granting
+                    unnecessary raw access. Data users can obtain useful outputs without needing direct access to every
+                    underlying asset. AI agents can interact with enterprise data through governed interfaces. And
+                    data-sharing protocols can be extended from asset access to programmable, data-aware authorization.
+                </p>
+            </div><!-- /.col-md-8 -->
+        </div><!-- /.row -->
+    </div>
+</section>
+
+
+<!-- Built for teams asking questions like -->
+<section class="section-padding">
+    <div class="container">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro wow fadeInUp">Who it's for</span>
+            <h2 class="section-title wow fadeInUp">Built for teams asking questions like</h2>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <ul class="check-list wow fadeInUp">
+                    <li>Can we let AI agents use our data without giving them broad access?</li>
+                    <li>Can we authorize requests based on what the computation will reveal?</li>
+                    <li>Can we share useful outputs instead of raw data?</li>
+                    <li>Can partners evaluate data, models, or signals without copying sensitive assets?</li>
+                    <li>Can authorization depend on the actual data, not just user identity or metadata?</li>
+                    <li>Can we enforce data release preferences across Databricks, Snowflake, APIs, cloud storage, and
+                        other
+                        systems?</li>
+                </ul>
+            </div><!-- /.col-md-8 -->
+        </div><!-- /.row -->
+    </div>
+</section>
+
+
+<!-- Subscription Section Start -->
+<section class="no-vertical-lines subscription-section bg-cover">
+    <a name="contact"></a>
+
+    <div class="container section-padding">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro white-text wow fadeInUp">early access</span>
+            <h2 class="section-title white-text wow fadeInUp">Interested in programmable authorization for shared data?</h2>
+            <p class="section-sub white-text wow fadeInUp">OpenSharing standardizes how governed data assets are shared.
+
+                invocate adds the escrow layer that decides what requests, computations, and outputs should be allowed.</p>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form action="https://formspree.io/f/xkoagozz" class="fs-form fs-layout__2-column" target="_top"
+                    method="POST">
+                    <input type="hidden" name="utm_source" id="utm_source">
+                    <input type="hidden" name="utm_medium" id="utm_medium">
+                    <input type="hidden" name="utm_campaign" id="utm_campaign">
+                    <input type="hidden" name="utm_content" id="utm_content">
+                    <input type="hidden" name="utm_term" id="utm_term">
+
+                    <input type="hidden" name="referrer" id="referrer">
+                    <input type="hidden" name="landing_page" id="landing_page">
+                    <input type="hidden" name="first_landing_page" id="first_landing_page">
+                    <input type="hidden" name="source_category" id="source_category">
+
+                    <fieldset>
+                        <legend class="fs-fieldset-title">Join the Waiting List</legend>
+                        <div class="fs-field">
+                            <label class="fs-label" for="full-name">Full Name</label>
+                            <input class="fs-input" id="full-name" name="full-name" placeholder="Jane Doe" />
+                        </div>
+                        <div class="fs-field">
+                            <label class="fs-label" for="email-address">Work Email *</label>
+                            <input class="fs-input" id="email-address" name="email-address" type="email"
+                                placeholder="jane@company.com" required />
+                        </div>
+                        <div class="fs-field">
+                            <label class="fs-label" for="company">Company</label>
+                            <input class="fs-input" id="company" name="company" placeholder="Company name" />
+                        </div>
+                        <div class="fs-field">
+                            <label class="fs-label" for="role">Role</label>
+                            <input class="fs-input" id="role" name="role" placeholder="e.g. Head of Data (optional)" />
+                        </div>
+                        <!-- checkboxes for the following options: 
+                        [ AI agent access to data ]
+
+                        [ Data-aware authorization ]
+
+                        [ Sharing outputs instead of raw data ]
+
+                        [ Governed evaluation ]
+
+                        [ Cross-platform data governance ]
+
+                        [ Other ] 
+                        -->
+                        <div class="fs-field col-span-full">
+                            <label class="fs-label" for="">What are you most interested in?</label>
+                            <div class="fs-checkbox-list">
+                                <div class="fs-checkbox-field">
+                                <div class="fs-checkbox-wrapper">
+                                    <input type="checkbox" class="fs-checkbox" id="ai-agent-access-to-data" name="ai-agent-access-to-data" />
+                                </div>
+                                <div><label class="fs-label" for="ai-agent-access-to-data">AI agent access to data</label></div>
+                            </div>
+                            <div class="fs-checkbox-field">
+                                <div class="fs-checkbox-wrapper">
+                                    <input type="checkbox" class="fs-checkbox" id="data-aware-authorization" name="data-aware-authorization" />
+                                </div>
+                                <div><label class="fs-label" for="data-aware-authorization">Data-aware authorization</label></div>
+                            </div>
+                            <div class="fs-checkbox-field">
+                                <div class="fs-checkbox-wrapper">
+                                    <input type="checkbox" class="fs-checkbox" id="sharing-outputs-instead-of-raw-data" name="sharing-outputs-instead-of-raw-data" />
+                                </div>
+                                <div><label class="fs-label" for="sharing-outputs-instead-of-raw-data">Sharing outputs instead of raw data</label></div>
+                            </div>
+                            <div class="fs-checkbox-field">
+                                <div class="fs-checkbox-wrapper">
+                                    <input type="checkbox" class="fs-checkbox" id="governed-evaluation" name="governed-evaluation" />
+                                </div>
+                                <div><label class="fs-label" for="governed-evaluation">Governed evaluation</label></div>
+                            </div>
+                            <div class="fs-checkbox-field">
+                                <div class="fs-checkbox-wrapper">
+                                    <input type="checkbox" class="fs-checkbox" id="cross-platform-data-governance" name="cross-platform-data-governance" />
+                                </div>
+                                <div><label class="fs-label" for="cross-platform-data-governance">Cross-platform data governance</label></div>
+                            </div>
+                            <div class="fs-checkbox-field">
+                                <div class="fs-checkbox-wrapper">
+                                    <input type="checkbox" class="fs-checkbox" id="other" name="other" />
+                                </div>
+                                <div><label class="fs-label" for="other">Other</label></div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <div class="fs-field col-span-full">
+                            <div class="fs-checkbox-field col-span-full">
+                                <div class="fs-checkbox-wrapper">
+                                    <!-- always submits a value: "no" by default, "yes" when the box is ticked -->
+                                    <input type="hidden" id="update-consent-value" name="update-consent" value="no" />
+                                    <input aria-describedby="update-consent-description" class="fs-checkbox"
+                                        id="update-consent" type="checkbox"
+                                        onchange="document.getElementById('update-consent-value').value = this.checked ? 'yes' : 'no'" />
+                                </div>
+
+                                <div>
+                                    <label class="fs-label" for="update-consent">
+                                        Keep me posted
+                                    </label>
+                                    <p class="fs-description" id="update-consent-description">
+                                        I agree to receive email updates from invocate about early
+                                        access and product news.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="fs-button-group">
+                        <button class="fs-button" type="submit">Request Early Access</button>
+                    </div>
+                </form>
+            </div><!-- /.col-md-6 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+<!-- Subscription Section End -->
+
+
+
+        </div><!-- /.main-wrapper -->
+
+
+        <!-- Footer Section -->
+        <footer class="footer-section dark-white no-vertical-lines">
+            <div class="continer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright-text text-center">
+                           invocate, inc.
+                        </div><!-- /.copyright-text -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.continer -->
+        </footer>
+        <!-- Footer Section -->
+
+
+
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
+            </div>
+        </div>
+        <!-- End Preloader -->
+
+
+        <!-- Javascript Files -->
+        <script src="assets/js/jquery-2.1.3.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/bootsnav.js"></script>
+        <script src="assets/owl.carousel/owl.carousel.min.js"></script>
+        <script src="assets/js/jquery.stellar.min.js"></script>
+        <script src="assets/js/imagesloaded.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/equalheight.js"></script>
+        <script src="assets/js/ajaxchimp.js"></script>
+        <script src="assets/js/ajaxchimp-config.js"></script>     
+        <script src="assets/js/script.js"></script>  
+
+        <script>
+            (function () {
+              const params = new URLSearchParams(window.location.search);
+            
+              const trackedFields = [
+                "utm_source",
+                "utm_medium",
+                "utm_campaign",
+                "utm_content",
+                "utm_term"
+              ];
+            
+              function getParam(name) {
+                return params.get(name) || "";
+              }
+            
+              function setCookie(name, value, days) {
+                if (!value) return;
+                const maxAge = days * 24 * 60 * 60;
+                document.cookie =
+                  encodeURIComponent(name) + "=" + encodeURIComponent(value) +
+                  "; max-age=" + maxAge +
+                  "; path=/; SameSite=Lax";
+              }
+            
+              function getCookie(name) {
+                const encodedName = encodeURIComponent(name) + "=";
+                return document.cookie
+                  .split("; ")
+                  .find(row => row.startsWith(encodedName))
+                  ?.slice(encodedName.length) || "";
+              }
+            
+              function setField(name, value) {
+                const field = document.querySelector(`[name="${name}"]`);
+                if (field && value) {
+                  field.value = value;
+                }
+              }
+            
+              // Save first-touch attribution for 90 days.
+              trackedFields.forEach(function (field) {
+                const value = getParam(field);
+                if (value && !getCookie("first_" + field)) {
+                  setCookie("first_" + field, value, 90);
+                }
+                if (value) {
+                  setCookie("last_" + field, value, 90);
+                }
+              });
+            
+              if (!getCookie("first_landing_page")) {
+                setCookie("first_landing_page", window.location.pathname, 90);
+              }
+            
+              // Populate visible submission metadata.
+              trackedFields.forEach(function (field) {
+                setField(field, getParam(field) || getCookie("last_" + field) || getCookie("first_" + field));
+              });
+            
+              setField("referrer", document.referrer || "");
+              setField("landing_page", window.location.pathname);
+              setField("first_landing_page", getCookie("first_landing_page") || window.location.pathname);
+            
+              // Simple fallback source category.
+              const utmSource = getParam("utm_source") || getCookie("last_utm_source") || "";
+              const referrer = document.referrer || "";
+            
+              let sourceCategory = "direct";
+              if (utmSource) {
+                sourceCategory = utmSource;
+              } else if (referrer.includes("google.")) {
+                sourceCategory = "google_organic";
+              } else if (referrer.includes("linkedin.")) {
+                sourceCategory = "linkedin_referral";
+              } else if (referrer) {
+                sourceCategory = "other_referral";
+              }
+            
+              setField("source_category", sourceCategory);
+            })();
+            </script>
+
+        <!-- Cloudflare Web Analytics -->
+         <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9e31f463e6fd42dab3d30af1fbdf43aa"}'></script> -->
+         <!-- End Cloudflare Web Analytics -->
+    </body>
+</html>
