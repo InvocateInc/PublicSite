@@ -142,7 +142,7 @@ data, data clean room, Databricks, Snowflake">
         </div><!-- /.section-title-wrapper -->
 
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <p class="wow fadeInUp">Protocols like OpenSharing give providers a standard way to expose shares,
                     schemas,
                     tables, models, and other assets to external recipients. That is useful, but many collaborations
@@ -166,16 +166,16 @@ data, data clean room, Databricks, Snowflake">
 </section>
 
 
-<!-- Why this matters -->
+<!-- Why this matters | Built for teams -->
 <section class="no-vertical-lines section-padding blue-violet-bg">
     <div class="container">
-        <div class="section-title-wrapper text-center">
-            <span class="section-intro white-text wow fadeInUp">Why this matters</span>
-            <h2 class="section-title white-text wow fadeInUp">data sharing is becoming more dynamic</h2>
-        </div><!-- /.section-title-wrapper -->
-
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-6">
+                <div class="section-title-wrapper text-center">
+                    <span class="section-intro white-text wow fadeInUp">Why this matters</span>
+                    <h2 class="section-title white-text wow fadeInUp">Data sharing is becoming more dynamic</h2>
+                </div><!-- /.section-title-wrapper -->
+
                 <p class="white-text wow fadeInUp">AI agents need to query enterprise data on behalf of users.
                     Applications
                     need to compute signals from sensitive datasets. Partners need to evaluate whether data is useful
@@ -189,7 +189,25 @@ data, data clean room, Databricks, Snowflake">
                         the
                         computation, the requester, the policy, and the output?&rdquo;</em></p>
                 <p class="white-text wow fadeInUp">That shift makes more advanced forms of data sharing possible.</p>
-            </div><!-- /.col-md-8 -->
+            </div><!-- /.col-md-6 -->
+
+            <div class="col-md-6">
+                <div class="section-title-wrapper text-center">
+                    <span class="section-intro white-text wow fadeInUp">Who it's for</span>
+                    <h2 class="section-title white-text wow fadeInUp">Built for teams asking questions like</h2>
+                </div><!-- /.section-title-wrapper -->
+
+                <ul class="check-list check-list-light wow fadeInUp">
+                    <li>Can we let AI agents use our data without giving them broad access?</li>
+                    <li>Can we authorize requests based on what the computation will reveal?</li>
+                    <li>Can we share useful outputs instead of raw data?</li>
+                    <li>Can partners evaluate data, models, or signals without copying sensitive assets?</li>
+                    <li>Can authorization depend on the actual data, not just user identity or metadata?</li>
+                    <li>Can we enforce data release preferences across Databricks, Snowflake, APIs, cloud storage, and
+                        other
+                        systems?</li>
+                </ul>
+            </div><!-- /.col-md-6 -->
         </div><!-- /.row -->
     </div>
 </section>
@@ -226,7 +244,7 @@ data, data clean room, Databricks, Snowflake">
             </div><!-- /.col-md-10 -->
         </div><!-- /.row -->
 
-        <div class="row margin-top-50">
+        <div class="row margin-top-25">
             <div class="col-md-10 col-md-offset-1 featured-item iconleft wow fadeInUp">
                 <div class="icon brand-color">
                     <i class="flaticon-calculator"></i>
@@ -249,7 +267,7 @@ data, data clean room, Databricks, Snowflake">
             </div><!-- /.col-md-10 -->
         </div><!-- /.row -->
 
-        <div class="row margin-top-50">
+        <div class="row margin-top-25">
             <div class="col-md-10 col-md-offset-1 featured-item iconleft wow fadeInUp">
                 <div class="icon brand-color">
                     <i class="flaticon-balance"></i>
@@ -283,63 +301,18 @@ data, data clean room, Databricks, Snowflake">
 </section>
 
 
-<!-- Example use cases -->
-<section class="section-padding blue-bg no-vertical-lines">
+
+<!-- How it works | The result -->
+<section class="section-padding no-vertical-lines blue-bg">
     <div class="container">
-        <div class="section-title-wrapper text-center">
-            <span class="section-intro white-text wow fadeInUp">use cases</span>
-            <h2 class="section-title white-text wow fadeInUp">What Programmable Authorization Unlocks</h2>
-        </div><!-- /.section-title-wrapper -->
-
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3 class="white-text wow fadeInUp">AI agent access to shared data</h3>
-                <p class="white-text wow fadeInUp">A provider wants AI agents to use its data, but not to freely extract
-                    records, sensitive fields, or uncontrolled summaries. With invocate, the provider can expose a
-                    governed
-                    interface to the agent. The agent can request answers or computations, while the escrow agent checks
-                    whether each result is allowed before anything is released. This enables enterprises to support
-                    agentic
-                    workflows without granting agents open-ended data access.</p>
+            <div class="col-md-6">
+                <div class="section-title-wrapper text-center">
+                    <span class="section-intro wow fadeInUp white-text">How it works</span>
+                    <h2 class="section-title wow fadeInUp white-text">From request to approved output</h2>
+                </div><!-- /.section-title-wrapper -->
 
-                <h3 class="white-text margin-top-50 wow fadeInUp">Governed evaluation</h3>
-                <p class="white-text wow fadeInUp">A partner wants to evaluate a dataset, model, feature, API, or
-                    business
-                    signal. Instead of granting broad access, the provider allows invocate to run an approved
-                    evaluation. The
-                    escrow agent computes the result and releases only the permitted metrics, summaries, or findings.
-                    The
-                    partner learns whether the asset is useful. The provider avoids unnecessary exposure of the
-                    underlying
-                    data.</p>
-
-                <h3 class="white-text margin-top-50 wow fadeInUp">Data-aware approval workflows</h3>
-                <p class="white-text wow fadeInUp">A company wants authorization decisions that depend on the content of
-                    the
-                    data itself. For example, access may be allowed only if the requested output is sufficiently
-                    aggregated,
-                    excludes restricted fields, meets a contractual threshold, or does not reveal information about a
-                    sensitive
-                    subgroup. invocate can evaluate those conditions inside the escrow environment and approve or deny
-                    the
-                    request based on the actual computation and output.</p>
-            </div><!-- /.col-md-8 -->
-        </div><!-- /.row -->
-    </div>
-</section>
-
-
-<!-- How it works -->
-<section class="section-padding">
-    <div class="container">
-        <div class="section-title-wrapper text-center">
-            <span class="section-intro wow fadeInUp">How it works</span>
-            <h2 class="section-title wow fadeInUp">From request to approved output</h2>
-        </div><!-- /.section-title-wrapper -->
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <ol class="how-it-works-list wow fadeInUp">
+                <ol class="how-it-works-list wow fadeInUp white-text">
                     <li>A provider exposes data assets through OpenSharing or another controlled interface.</li>
                     <li>invocate is authorized as the escrow agent.</li>
                     <li>A data user, application, or AI agent makes a request.</li>
@@ -349,62 +322,31 @@ data, data clean room, Databricks, Snowflake">
                     <li>The escrow agent checks whether the result satisfies the release rules.</li>
                     <li>The approved output is returned to the data user through a familiar interface.</li>
                 </ol>
-                <p class="margin-top-30 wow fadeInUp"><strong>Important:</strong> data remains encrypted end-to-end,
+                <p class="margin-top-30 wow fadeInUp white-text"><strong>Important:</strong> data remains encrypted end-to-end,
                     including
                     during computation.</p>
-            </div><!-- /.col-md-8 -->
-        </div><!-- /.row -->
-    </div>
-</section>
+            </div><!-- /.col-md-6 -->
 
+            <div class="col-md-6">
+                <div class="section-title-wrapper text-center">
+                    <span class="section-intro wow fadeInUp white-text">The result</span>
+                    <h2 class="section-title wow fadeInUp white-text">Programmable & data-aware
+                        auth</h2>
+                </div><!-- /.section-title-wrapper -->
 
-<!-- The result -->
-<section class="no-vertical-lines section-padding blue-violet-bg">
-    <div class="container">
-        <div class="section-title-wrapper text-center">
-            <span class="section-intro white-text wow fadeInUp">The result</span>
-            <h2 class="section-title white-text wow fadeInUp">Asset access becomes programmable, data-aware
-                authorization</h2>
-        </div><!-- /.section-title-wrapper -->
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <p class="white-text wow fadeInUp">Providers can participate in more data collaborations without
+                <p class="wow fadeInUp white-text">Providers can participate in more data collaborations without
                     granting
-                    unnecessary raw access. Data users can obtain useful outputs without needing direct access to every
+                    unnecessary raw access. Data users can obtain useful outputs without needing direct access to
+                    every
                     underlying asset. AI agents can interact with enterprise data through governed interfaces. And
-                    data-sharing protocols can be extended from asset access to programmable, data-aware authorization.
+                    data-sharing protocols can be extended from asset access to programmable, data-aware
+                    authorization.
                 </p>
-            </div><!-- /.col-md-8 -->
+            </div><!-- /.col-md-6 -->
         </div><!-- /.row -->
     </div>
 </section>
 
-
-<!-- Built for teams asking questions like -->
-<section class="section-padding">
-    <div class="container">
-        <div class="section-title-wrapper text-center">
-            <span class="section-intro wow fadeInUp">Who it's for</span>
-            <h2 class="section-title wow fadeInUp">Built for teams asking questions like</h2>
-        </div><!-- /.section-title-wrapper -->
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <ul class="check-list wow fadeInUp">
-                    <li>Can we let AI agents use our data without giving them broad access?</li>
-                    <li>Can we authorize requests based on what the computation will reveal?</li>
-                    <li>Can we share useful outputs instead of raw data?</li>
-                    <li>Can partners evaluate data, models, or signals without copying sensitive assets?</li>
-                    <li>Can authorization depend on the actual data, not just user identity or metadata?</li>
-                    <li>Can we enforce data release preferences across Databricks, Snowflake, APIs, cloud storage, and
-                        other
-                        systems?</li>
-                </ul>
-            </div><!-- /.col-md-8 -->
-        </div><!-- /.row -->
-    </div>
-</section>
 
 
 <!-- Subscription Section Start -->
@@ -414,10 +356,12 @@ data, data clean room, Databricks, Snowflake">
     <div class="container section-padding">
         <div class="section-title-wrapper text-center">
             <span class="section-intro white-text wow fadeInUp">early access</span>
-            <h2 class="section-title white-text wow fadeInUp">Interested in programmable authorization for shared data?</h2>
+            <h2 class="section-title white-text wow fadeInUp">Interested in programmable authorization for shared data?
+            </h2>
             <p class="section-sub white-text wow fadeInUp">OpenSharing standardizes how governed data assets are shared.
 
-                invocate adds the escrow layer that decides what requests, computations, and outputs should be allowed.</p>
+                invocate adds the escrow layer that decides what requests, computations, and outputs should be allowed.
+            </p>
         </div><!-- /.section-title-wrapper -->
 
         <div class="row">
@@ -438,14 +382,15 @@ data, data clean room, Databricks, Snowflake">
                     <fieldset>
                         <legend class="fs-fieldset-title">Join the Waiting List</legend>
                         <div class="fs-field">
-                            <label class="fs-label" for="full-name">Full Name</label>
-                            <input class="fs-input" id="full-name" name="full-name" placeholder="Jane Doe" />
-                        </div>
-                        <div class="fs-field">
                             <label class="fs-label" for="email-address">Work Email *</label>
                             <input class="fs-input" id="email-address" name="email-address" type="email"
                                 placeholder="jane@company.com" required />
                         </div>
+                        <div class="fs-field">
+                            <label class="fs-label" for="full-name">Full Name</label>
+                            <input class="fs-input" id="full-name" name="full-name" placeholder="Jane Doe" />
+                        </div>
+                        <!--
                         <div class="fs-field">
                             <label class="fs-label" for="company">Company</label>
                             <input class="fs-input" id="company" name="company" placeholder="Company name" />
@@ -454,6 +399,7 @@ data, data clean room, Databricks, Snowflake">
                             <label class="fs-label" for="role">Role</label>
                             <input class="fs-input" id="role" name="role" placeholder="e.g. Head of Data (optional)" />
                         </div>
+                        -->
                         <!-- checkboxes for the following options: 
                         [ AI agent access to data ]
 
@@ -471,42 +417,53 @@ data, data clean room, Databricks, Snowflake">
                             <label class="fs-label" for="">What are you most interested in?</label>
                             <div class="fs-checkbox-list">
                                 <div class="fs-checkbox-field">
-                                <div class="fs-checkbox-wrapper">
-                                    <input type="checkbox" class="fs-checkbox" id="ai-agent-access-to-data" name="ai-agent-access-to-data" />
+                                    <div class="fs-checkbox-wrapper">
+                                        <input type="checkbox" class="fs-checkbox" id="ai-agent-access-to-data"
+                                            name="ai-agent-access-to-data" />
+                                    </div>
+                                    <div><label class="fs-label" for="ai-agent-access-to-data">AI agent access to
+                                            data</label></div>
                                 </div>
-                                <div><label class="fs-label" for="ai-agent-access-to-data">AI agent access to data</label></div>
-                            </div>
-                            <div class="fs-checkbox-field">
-                                <div class="fs-checkbox-wrapper">
-                                    <input type="checkbox" class="fs-checkbox" id="data-aware-authorization" name="data-aware-authorization" />
+                                <div class="fs-checkbox-field">
+                                    <div class="fs-checkbox-wrapper">
+                                        <input type="checkbox" class="fs-checkbox" id="data-aware-authorization"
+                                            name="data-aware-authorization" />
+                                    </div>
+                                    <div><label class="fs-label" for="data-aware-authorization">Data-aware
+                                            authorization</label></div>
                                 </div>
-                                <div><label class="fs-label" for="data-aware-authorization">Data-aware authorization</label></div>
-                            </div>
-                            <div class="fs-checkbox-field">
-                                <div class="fs-checkbox-wrapper">
-                                    <input type="checkbox" class="fs-checkbox" id="sharing-outputs-instead-of-raw-data" name="sharing-outputs-instead-of-raw-data" />
+                                <div class="fs-checkbox-field">
+                                    <div class="fs-checkbox-wrapper">
+                                        <input type="checkbox" class="fs-checkbox"
+                                            id="sharing-outputs-instead-of-raw-data"
+                                            name="sharing-outputs-instead-of-raw-data" />
+                                    </div>
+                                    <div><label class="fs-label" for="sharing-outputs-instead-of-raw-data">Sharing
+                                            outputs instead of raw data</label></div>
                                 </div>
-                                <div><label class="fs-label" for="sharing-outputs-instead-of-raw-data">Sharing outputs instead of raw data</label></div>
-                            </div>
-                            <div class="fs-checkbox-field">
-                                <div class="fs-checkbox-wrapper">
-                                    <input type="checkbox" class="fs-checkbox" id="governed-evaluation" name="governed-evaluation" />
+                                <div class="fs-checkbox-field">
+                                    <div class="fs-checkbox-wrapper">
+                                        <input type="checkbox" class="fs-checkbox" id="governed-evaluation"
+                                            name="governed-evaluation" />
+                                    </div>
+                                    <div><label class="fs-label" for="governed-evaluation">Governed evaluation</label>
+                                    </div>
                                 </div>
-                                <div><label class="fs-label" for="governed-evaluation">Governed evaluation</label></div>
-                            </div>
-                            <div class="fs-checkbox-field">
-                                <div class="fs-checkbox-wrapper">
-                                    <input type="checkbox" class="fs-checkbox" id="cross-platform-data-governance" name="cross-platform-data-governance" />
+                                <div class="fs-checkbox-field">
+                                    <div class="fs-checkbox-wrapper">
+                                        <input type="checkbox" class="fs-checkbox" id="cross-platform-data-governance"
+                                            name="cross-platform-data-governance" />
+                                    </div>
+                                    <div><label class="fs-label" for="cross-platform-data-governance">Cross-platform
+                                            data governance</label></div>
                                 </div>
-                                <div><label class="fs-label" for="cross-platform-data-governance">Cross-platform data governance</label></div>
-                            </div>
-                            <div class="fs-checkbox-field">
-                                <div class="fs-checkbox-wrapper">
-                                    <input type="checkbox" class="fs-checkbox" id="other" name="other" />
+                                <div class="fs-checkbox-field">
+                                    <div class="fs-checkbox-wrapper">
+                                        <input type="checkbox" class="fs-checkbox" id="other" name="other" />
+                                    </div>
+                                    <div><label class="fs-label" for="other">Other</label></div>
                                 </div>
-                                <div><label class="fs-label" for="other">Other</label></div>
                             </div>
-                        </div>
                         </div>
 
                         <div class="fs-field col-span-full">
