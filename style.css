@@ -294,6 +294,9 @@ img {
 .margin-top-20 {
     margin-top: 20px;
 }
+.margin-top-25 {
+    margin-top: 25px;
+}
 .margin-top-30 {
     margin-top: 30px;
 }
@@ -580,6 +583,13 @@ img {
 
 .banner-open-sharing {
     background-image: url("assets/img/cover-1.jpg");  /* placeholder — swap for assets/img/open-sharing.jpg */
+}
+
+.banner-thanks {
+    background-image: url("assets/img/cover-2.jpg");
+    /* Fill the viewport minus the footer so the footer sits at the bottom
+       with no white gap below it on this short page. */
+    min-height: calc(100vh - 144px);
 }
 
 
