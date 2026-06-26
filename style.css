@@ -674,6 +674,14 @@ body.solid-nav .navbar-fixed {
     }
 }
 
+/* Scale down the nav logos (logo.png / logo-white.png are 1200x300) */
+nav.navbar.bootsnav .navbar-brand .logo {
+    height: 40px;
+    width: auto;
+    position: relative;
+    top: -10px;
+}
+
 nav.navbar.bootsnav ul.nav li.dropdown>ul.dropdown-menu {
     border-top-color: #425367
 }
