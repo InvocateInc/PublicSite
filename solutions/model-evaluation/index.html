@@ -14,19 +14,19 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="invocate builds the infrastructure organizations need to control, use, share, and monetize data for the AI economy — programmable controls, agent-native transactions, and verified outcomes, powered by our Escrow Agent and Platform.">
-        <meta name="keywords" content="AI economy infrastructure, data monetization, agent-native transactions, programmable data controls, data escrow, escrow agent, AI agent data access, data transactions, secure computation, data marketplace">
+        <meta name="description" content="Benchmark foundation models and evaluate agents against data you cannot send to a model vendor. The model is scored in escrow and only the agreed evaluation results are released.">
+        <meta name="keywords" content="foundation model benchmarking, model evaluation, agent evaluation, LLM evaluation, private benchmark, data escrow, secure computation, held-out evaluation set, agent-native transactions">
 
         
         
         <meta name="robots" content="index, follow">
         
 
-        <title>invocate: Infrastructure for the AI Economy</title>
+        <title>Evaluate models against data you cannot share | invocate</title>
 
         
         
-        <link rel="canonical" href="https://invocate.com/">
+        <link rel="canonical" href="https://invocate.com/solutions/model-evaluation">
         
 
 
@@ -114,7 +114,7 @@
                                     <a href="/how-it-works">How It Works</a>
                                 </li>
 
-                                <li class="dropdown">
+                                <li class="dropdown active">
                                     <a href="/solutions" class="dropdown-toggle" data-toggle="dropdown">Solutions</a>
                                     <ul class="dropdown-menu">
                                         <li><a href="/solutions/content-monetization">Content Monetization</a></li>
@@ -154,19 +154,18 @@
 
 
 
-
-<section class="banner-1 parallax-bg bg-fixed overlay dark-5 fullscreen-banner full-height valign-wrapper no-vertical-lines"
+<section class="banner-model-evaluation parallax-bg bg-fixed overlay dark-5 height-600 valign-wrapper no-vertical-lines"
          data-stellar-background-ratio="0.5">
     <div class="valign-cell">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-10 col-md-offset-1">
                     
-                    <span class="hero-sub white-text wow fadeInUp">invocate</span>
+                    <span class="hero-sub white-text wow fadeInUp">Try before you buy</span>
                     
-                    <h1 class="hero-intro big-text white-text wow fadeInUp">Infrastructure for the AI Economy</h1>
+                    <h1 class="hero-intro big-text white-text wow fadeInUp">Evaluate models against the data you cannot send them</h1>
                     
-                    <p class="section-sub white-text wow fadeInUp">We build infrastructure to control and monetize how humans and AI agents use data.</p>
+                    <p class="section-sub white-text wow fadeInUp">Benchmark foundation models and evaluate agents on your real workload and score in escrow, with only the agreed evaluation results released to either side.</p>
                     
                     
                 </div><!-- /.col-md-10 -->
@@ -177,237 +176,171 @@
 <!-- Hero Section End -->
 
 
-<!-- The pitch, in one paragraph -->
+<!-- The problem -->
 <section class="padding-top-100 padding-bottom-70 no-vertical-lines">
     <div class="container">
-        <div class="section-title-wrapper wide text-center">
-            <a name="about"></a>
-            <span class="section-intro wow fadeInUp">The opportunity</span>
-            <h2 class="section-title wow fadeInUp">AI has created unprecedented demand for data. Capturing its value is
-                the hard part.</h2>
-            <p class="section-sub wow fadeInUp">Agents and humans need access to proprietary content, specialized
-                datasets, organizational knowledge, and continuously updated information to do useful work. At the same
-                time, the organizations that hold this data need greater control over how it is accessed, what can be
-                done with it, and how they benefit when it creates value.</p>
-            <p class="section-sub wow fadeInUp">Both of those can be true at once. When access can be priced, scoped,
-                and verified, data stops being something you protect by keeping it still and becomes something you can
-                put to work: sold, licensed, evaluated, or exchanged with a partner, without ever handing over
-                the underlying data, code, or model.</p>
-
-                <div class="row card-row">
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay=".2s">
-                        <div class="featured-item text-center">
-                            <div class="icon brand-color"><i class="flaticon-wallet"></i></div>
-                            <div class="desc">
-                                <h2>Monetize access</h2>
-                                <p>Charge for what your data does, not just for a copy of it. Price on your terms: per document, per query,
-                                    per computation, or by subscription.</p>
-                            </div>
-                        </div>
-                    </div><!-- /.col-md-4 -->
-
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay=".4s">
-                        <div class="featured-item text-center">
-                            <div class="icon brand-color"><i class="flaticon-levels"></i></div>
-                            <div class="desc">
-                                <h2>Control dataflows</h2>
-                                <p>Decide who gets in, what they are allowed to compute, and what is allowed to leave.
-                                    The controls travel with the transaction instead of ending at the handoff.</p>
-                            </div>
-                        </div>
-                    </div><!-- /.col-md-4 -->
-
-                    <div class="col-md-4 wow fadeInUp" data-wow-delay=".6s">
-                        <div class="featured-item text-center">
-                            <div class="icon brand-color"><i class="flaticon-teamwork"></i></div>
-                            <div class="desc">
-                                <h2>Easy collaboration</h2>
-                                <p>Match, measure, and analyze against another organization&rsquo;s data with neither
-                                    side surrendering a copy, unlocking partnerships that stalled before they started.</p>
-                            </div>
-                        </div>
-                    </div><!-- /.col-md-4 -->
-                </div><!-- /.row -->
-                <div class="row margin-top-25">
-                    <div class="col-md-12 wow fadeInUp">
-                        <p>To help organizations realize the value of their data for the growing AI economy, invocate
-                            provides low-friction infrastructure to control and monetize how humans and AI agents use
-                            data, built on over a decade of <a href="/research">research</a> in data systems, data
-                            markets, privacy, AI, and data ecosystems.</p>
-                    </div><!-- /.col-md-12 -->
-                </div><!-- /.row -->
-
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro wow fadeInUp">The problem</span>
+            <h2 class="section-title wow fadeInUp">Public benchmarks do not tell you how a model does on your work</h2>
+            <p class="section-sub wow fadeInUp">The evaluation that would actually decide your model choice runs against
+                your production data: support transcripts, claims, clinical notes, contracts, transaction
+                histories. That is exactly the data you cannot paste into a vendor&rsquo;s API to find out.</p>
         </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 wow fadeInUp">
+                <ul class="check-list">
+                    <li>Sending real records to a model vendor for evaluation is often the thing your policy exists to
+                        prevent.</li>
+                    <li>Sanitized or synthetic evaluation sets measure the sanitized case, not the one you care about.
+                    </li>
+                    <li>Public benchmarks leak into training data over time, so a strong score may be memorization
+                        rather than capability.</li>
+                    <li>Vendors, meanwhile, cannot hand you model weights to evaluate locally.</li>
+                </ul>
+            </div><!-- /.col-md-8 -->
+        </div><!-- /.row -->
     </div><!-- /.container -->
 </section>
 
 
-<!-- Making data transactable -->
-<section class="section-padding dark-white no-vertical-lines">
+<!-- In escrow -->
+<section class="section-padding blue-violet-bg no-vertical-lines">
     <div class="container">
         <div class="section-title-wrapper text-center">
-            <span class="section-intro wow fadeInUp">Making data transactable</span>
-            <h2 class="section-title wow fadeInUp">Data access is not a binary decision</h2>
-            <p class="section-sub wow fadeInUp">Instead of share it or don&rsquo;t, invocate lets you determine who can
-                access a resource, what they can do with it, what they receive in return, and what information is
-                released on structured or unstructured data, for humans or AI agents, with compensation through
-                payment, reciprocal access, and more.</p>
+            <span class="section-intro white-text wow fadeInUp">In escrow</span>
+            <h2 class="section-title white-text wow fadeInUp">The model meets the data inside the escrow agent</h2>
+            <p class="section-sub white-text wow fadeInUp">Neither side has to give up what it cannot give up. The
+                evaluation runs once, under terms both parties approved, and only the agreed measurements leave.</p>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".2s">
+                <div class="featured-item text-center">
+                    <div class="icon brand-color"><i class="flaticon-agreement"></i></div>
+                    <div class="desc">
+                        <h2>Agreed metrics only</h2>
+                        <p>Both parties fix the evaluation set, the scoring method, and the exact metrics released
+                            before anything runs.</p>
+                    </div>
+                </div>
+            </div><!-- /.col-md-4 -->
+
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".4s">
+                <div class="featured-item text-center">
+                    <div class="icon brand-color"><i class="flaticon-shield"></i></div>
+                    <div class="desc">
+                        <h2>No prompts or records retained</h2>
+                        <p>Your evaluation data is not exposed to the vendor and is not available for training,
+                            retention, or inspection.</p>
+                    </div>
+                </div>
+            </div><!-- /.col-md-4 -->
+
+            <div class="col-md-4 wow fadeInUp" data-wow-delay=".6s">
+                <div class="featured-item text-center">
+                    <div class="icon brand-color"><i class="flaticon-stats"></i></div>
+                    <div class="desc">
+                        <h2>Scores, not transcripts</h2>
+                        <p>What comes back is the measurement (accuracy, error rates, cost and latency profiles)
+                         not the underlying inputs and outputs.</p>
+                    </div>
+                </div>
+            </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+
+<!-- Foundation model benchmarking -->
+<section class="section-padding no-vertical-lines">
+    <div class="container">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro wow fadeInUp">Foundation model benchmarking</span>
+            <h2 class="section-title wow fadeInUp">Compare models on a benchmark only you hold</h2>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 wow fadeInUp">
+                <p>Because the evaluation set never leaves escrow, it stays genuinely held out. The same benchmark can
+                    be re-run against a new model or a new version months later and still mean something; all while ensuring it has
+                    not been published, scraped, or trained on.</p>
+                <ul class="check-list">
+                    <li>Score several candidate models against one private evaluation set under identical conditions.
+                    </li>
+                    <li>Re-run the same benchmark on each new model release to see whether an upgrade is real.</li>
+                    <li>Measure quality alongside cost and latency, so the trade-off is visible in one place.</li>
+                    <li>Keep the benchmark uncontaminated, because it is never disclosed to the models being scored.
+                    </li>
+                </ul>
+            </div><!-- /.col-md-8 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+
+<!-- Agent evaluation -->
+<section class="section-padding blue-bg no-vertical-lines">
+    <div class="container">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro white-text wow fadeInUp">Agent evaluation</span>
+            <h2 class="section-title white-text wow fadeInUp">Judge what the agent did, not just what it answered</h2>
+            <p class="section-sub white-text wow fadeInUp">Agents act by calling tools, reading sources, and combining
+                data. Evaluating one means watching the whole trajectory, which is precisely the part that is too
+                sensitive to hand over.</p>
+        </div><!-- /.section-title-wrapper -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 wow fadeInUp">
+                <ul class="check-list check-list-light">
+                    <li>Run agents against real tasks and real data inside escrow.</li>
+                    <li>Score task completion, tool-use correctness, and failure modes over the full trajectory.</li>
+                    <li>Check whether an agent accessed or revealed more than it was permitted to.</li>
+                    <li>Release only the aggregate evaluation, never the trajectories themselves.</li>
+                </ul>
+                <p class="white-text">This is the same data-aware authorization described in
+                    <a href="/open-sharing">programmable authorization for shared data</a>, applied to evaluation.</p>
+            </div><!-- /.col-md-8 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+
+<!-- Who it is for -->
+<section class="section-padding no-vertical-lines">
+    <div class="container">
+        <div class="section-title-wrapper text-center">
+            <span class="section-intro wow fadeInUp">Who uses it</span>
+            <h2 class="section-title wow fadeInUp">Both sides of the evaluation get something they could not get alone
+            </h2>
         </div><!-- /.section-title-wrapper -->
 
         <div class="row">
             <div class="col-md-6 wow fadeInUp">
                 <div class="featured-item iconleft">
-                    <div class="icon brand-color"><i class="flaticon-coins"></i></div>
-                    <div class="desc">
-                        <h2><a href="/solutions/content-monetization">Publishers &amp; Content Owners</a></h2>
-                        <p>Give AI agents paid access to articles, archives, data, or other proprietary content,
-                            charging per document, query, computation, or subscription.</p>
-                    </div>
-                </div>
-            </div><!-- /.col-md-6 -->
-
-            <div class="col-md-6 wow fadeInUp">
-                <div class="featured-item iconleft">
-                    <div class="icon brand-color"><i class="flaticon-search"></i></div>
-                    <div class="desc">
-                        <h2><a href="/solutions/data-lift">Data Vendors</a></h2>
-                        <p>Let prospective customers or agents test a dataset against their own problem before
-                            purchasing it, without revealing the underlying data, evaluation code, or model.</p>
-                    </div>
-                </div>
-            </div><!-- /.col-md-6 -->
-        </div><!-- /.row -->
-
-        <div class="row margin-top-25">
-            <div class="col-md-6 wow fadeInUp">
-                <div class="featured-item iconleft">
                     <div class="icon brand-color"><i class="flaticon-building"></i></div>
                     <div class="desc">
-                        <h2><a href="/solutions/enterprise-access">Enterprises</a></h2>
-                        <p>Give employees and AI agents access to sensitive internal information while restricting what
-                            can be retrieved, computed, or shared downstream.</p>
+                        <h2>Model buyers</h2>
+                        <p>Choose a model on evidence from your own workload instead of a leaderboard, without moving
+                            regulated or contractually restricted data to a vendor.</p>
                     </div>
                 </div>
             </div><!-- /.col-md-6 -->
 
             <div class="col-md-6 wow fadeInUp">
                 <div class="featured-item iconleft">
-                    <div class="icon brand-color"><i class="flaticon-network"></i></div>
+                    <div class="icon brand-color"><i class="flaticon-idea"></i></div>
                     <div class="desc">
-                        <h2><a href="/solutions/private-overlap">Partner Organizations</a></h2>
-                        <p>Collaborate or exchange information without requiring either party to surrender
-                            unrestricted copies of its assets.</p>
+                        <h2>Model and agent vendors</h2>
+                        <p>Prove performance on a prospect&rsquo;s real data without ever receiving it, and without
+                            asking them to run an evaluation you cannot verify.</p>
                     </div>
                 </div>
             </div><!-- /.col-md-6 -->
         </div><!-- /.row -->
-
-        <div class="row margin-top-30">
-            <div class="col-md-12 text-center wow fadeInUp">
-                <a href="/solutions" class="btn btn-primary">See all solutions</a>
-            </div><!-- /.col-md-12 -->
-        </div><!-- /.row -->
     </div><!-- /.container -->
 </section>
 
-
-<!-- Three-step diagram -->
-
-<section class="section-padding blue-violet-bg no-vertical-lines">
-    <div class="container">
-        <div class="section-title-wrapper text-center">
-            <span class="section-intro white-text wow fadeInUp">Control data flow, capture data&rsquo;s value</span>
-            <h2 class="section-title white-text wow fadeInUp">Define the terms, run the transaction, prove what
-                happened</h2>
-        </div><!-- /.section-title-wrapper -->
-
-        <div class="row card-row">
-            <div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".2s">
-                <div class="featured-item text-center">
-                    <div class="icon brand-color">
-                        <i class="flaticon-agreement"></i>
-                    </div>
-                    <div class="desc">
-                        <h2>1. Define</h2>
-                        <p>Set the conditions under which data may be used, what the evaluation is, and what is returned in
-                            exchange.</p>
-                    </div>
-                </div><!-- /.featured-item -->
-            </div><!-- /.col-md-4 -->
-
-            <div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".4s">
-                <div class="featured-item text-center">
-                    <div class="icon brand-color">
-                        <i class="flaticon-shield"></i>
-                    </div>
-                    <div class="desc">
-                        <h2>2. Transact</h2>
-                        <p>Computation takes place without unnecessarily transferring the underlying data, models, or
-                            code.</p>
-                    </div>
-                </div><!-- /.featured-item -->
-            </div><!-- /.col-md-4 -->
-
-            <div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-delay=".6s">
-                <div class="featured-item text-center">
-                    <div class="icon brand-color">
-                        <i class="flaticon-checked"></i>
-                    </div>
-                    <div class="desc">
-                        <h2>3. Verify</h2>
-                        <p>Only approved results are released, and the transaction produces auditable evidence of what
-                            happened.</p>
-                    </div>
-                </div><!-- /.featured-item -->
-            </div><!-- /.col-md-4 -->
-        </div><!-- /.row -->
-
-        <div class="row margin-top-30">
-            <div class="col-md-12 text-center wow fadeInUp">
-                <a href="/how-it-works" class="btn btn-primary">See how it works</a>
-            </div><!-- /.col-md-12 -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
-</section>
-
-
-
-
-
-
-<!-- Team teaser -->
-<section class="section-padding no-vertical-lines">
-    <div class="container">
-        <div class="section-title-wrapper text-center">
-            <span class="section-intro wow fadeInUp">Our Founding in Research</span>
-            <h2 class="section-title wow fadeInUp">Built by data experts and AI pioneers</h2>
-            <div class="row text-center proof-strip wow fadeInUp">
-                <div class="col-md-3 col-sm-6 proof-item">
-                    <span class="proof-mark">UChicago &amp; MIT</span>
-                    <span class="proof-note">Where the research started</span>
-                </div>
-                <div class="col-md-3 col-sm-6 proof-item">
-                    <span class="proof-mark">Funded Research</span>
-                    <span class="proof-note">Data markets &amp; governance</span>
-                </div>
-                <div class="col-md-3 col-sm-6 proof-item">
-                    <span class="proof-mark">10+ years of Research</span>
-                    <span class="proof-note">Data systems, markets, privacy &amp; AI</span>
-                </div>
-                <div class="col-md-3 col-sm-6 proof-item">
-                    <span class="proof-mark">Venture Backed</span>
-                    <span class="proof-note">Backed by top venture capital</span>
-                </div>
-            </div><!-- /.row -->
-            <p class="text-center wow fadeInUp">
-                <a href="/team" class="btn btn-primary">Meet the founding team</a>
-            </p>
-        </div><!-- /.section-title-wrapper -->
-    </div><!-- /.container -->
-</section>
-
-
-<!-- CTA -->
 
 
 
@@ -420,7 +353,7 @@
     <div class="container section-padding">
         <div class="section-title-wrapper text-center">
             <span class="section-intro white-text wow fadeInUp">Get started</span>
-            <h2 class="section-title white-text wow fadeInUp">Put your data to work on your terms</h2>
+            <h2 class="section-title white-text wow fadeInUp">Benchmark a model against data you cannot share.</h2>
             
         </div><!-- /.section-title-wrapper -->
 

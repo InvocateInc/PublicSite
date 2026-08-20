@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Private, provided-link-only pages. These also carry a noindex meta tag;
+# the Disallow here just keeps them out of crawl budget.
+Disallow: /landing
+Disallow: /thanks
+
+Sitemap: https://invocate.com/sitemap.xml

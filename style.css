@@ -254,7 +254,7 @@ input:-webkit-autofill:focus {
 
 @media screen and (min-width: 992px) {
    .section-title {
-        width: 60%;
+        width: 80%;
         margin: 0 auto 35px;
    }
 
@@ -381,6 +381,9 @@ img {
 .padding-top-140 {
   padding-top: 140px;
 }
+.padding-bottom-40 {
+    padding-bottom: 40px;
+  }
 .padding-bottom-70 {
   padding-bottom: 70px;
 }
@@ -549,40 +552,75 @@ img {
     }
 }
 
+/* Page hero backgrounds. One per page; the class is set via `banner_class`
+   in the page's setup block and rendered by partials/hero.html.
+   style.css is served from the site root, so these relative urls resolve
+   to /assets/img/... on every page regardless of directory depth. */
+
 .banner-1 {
-    background-image: url("assets/img/cover-1.jpg");  
+    background-image: url("assets/img/cover-1.jpg");
 }
 
 .banner-2 {
-    background-image: url("assets/img/cover-2.jpg");  
+    background-image: url("assets/img/cover-2.jpg");
 }
 
-.banner-3 {
-    background-image: url("assets/img/cover-3.jpg");  
+/* Top-level pages */
+.banner-how-it-works {
+    background-image: url("assets/img/how-it-works.jpg");
 }
 
-.banner-4 {
-    background-image: url("assets/img/cover-4.jpg");  
+.banner-solutions {
+    background-image: url("assets/img/solutions.jpg");
 }
 
-.banner-5 {
-    background-image: url("assets/img/cover-5.jpg");  
+.banner-research {
+    background-image: url("assets/img/research.jpg");
 }
 
-.banner-partnership-evaluation {
-    background-image: url("assets/img/partnership.jpg");
+.banner-team {
+    background-image: url("assets/img/team.jpg");
+}
+
+.banner-how-to-engage {
+    background-image: url("assets/img/how-to-engage.jpg");
+}
+
+.banner-articles {
+    background-image: url("assets/img/articles.jpg");
+}
+
+.banner-careers {
+    background-image: url("assets/img/careers.jpg");
+}
+
+/* Solution pages */
+.banner-content-monetization {
+    background-image: url("assets/img/content-monetization.jpg");
+}
+
+.banner-enterprise-access {
+    background-image: url("assets/img/enterprise-access.jpg");
 }
 
 .banner-private-overlap {
     background-image: url("assets/img/overlap.jpg");
 }
 
-.banner-vendor-data-lift {
+.banner-data-evaluation {
+    background-image: url("assets/img/partnership.jpg");
+}
+
+.banner-model-evaluation {
+    background-image: url("assets/img/model-evaluation.jpg");
+}
+
+.banner-data-lift {
     background-image: url("assets/img/growth.jpg");
 }
 
 .banner-open-sharing {
-    background-image: url("assets/img/cover-1.jpg");  /* placeholder — swap for assets/img/open-sharing.jpg */
+    background-image: url("assets/img/open-sharing.jpg");
 }
 
 .banner-thanks {
@@ -661,6 +699,25 @@ body.solid-nav .navbar-fixed {
         text-transform: uppercase;
     }
 }
+
+/* Seven top-level items (two with dropdown carets) overflow the container on
+   narrower desktops. Tighten the horizontal padding in two steps so the bar
+   stays on one row and keeps clear of the logo; wide screens keep the
+   roomier 15px. Verified at 1024 / 1280 / 1366 / 1440 / 1680.
+   Below 993px Bootsnav collapses to the hamburger, so no tier is needed. */
+@media (min-width: 993px) and (max-width: 1399px) {
+    nav.navbar.bootsnav ul.nav > li > a {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media (min-width: 993px) and (max-width: 1199px) {
+    nav.navbar.bootsnav ul.nav > li > a {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+}
+
 @media (max-width: 992px) {
     nav.navbar.bootsnav .navbar-brand {
         float: left !important; 
@@ -1771,4 +1828,322 @@ body.no-lines .l2 {
 .check-list.check-list-light li,
 .check-list.check-list-light li:before {
     color: #fff;
+}
+
+/* ================ Multi-page site components ==================
+   Added with the template/ multi-page framework. Everything above this
+   line predates it (theme CSS + the original one-page overrides). */
+
+/* --- Footer link columns --- */
+.footer-links {
+    margin-bottom: 40px;
+}
+.footer-heading {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #36454f;
+    margin: 0 0 18px;
+}
+.footer-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.footer-links li {
+    margin-bottom: 8px;
+}
+.footer-links a {
+    color: #666;
+    font-size: 14px;
+}
+.footer-links a:hover,
+.footer-links a:focus {
+    color: #425367;
+}
+.footer-social a {
+    display: inline-block;
+    font-size: 20px;
+    color: #666;
+    margin-right: 12px;
+}
+.footer-social a:hover {
+    color: #425367;
+}
+
+@media (max-width: 767px) {
+    .footer-links > div {
+        margin-bottom: 30px;
+    }
+}
+
+/* --- Homepage proof strip --- */
+.proof-strip {
+    margin-bottom: 40px;
+}
+.proof-item {
+    padding: 20px 10px;
+}
+.proof-mark {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    line-height: 1.3;
+    color: #36454f;
+}
+.proof-note {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #929090;
+}
+
+/* --- Team bio pages --- */
+.bio-portrait img {
+    width: 100%;
+    height: auto;
+}
+.bio-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    line-height: 1.2;
+    margin: 10px 0 25px;
+}
+.bio-links {
+    list-style: none;
+    margin: 25px 0;
+    padding: 0;
+}
+.bio-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+@media (max-width: 767px) {
+    .bio-portrait {
+        margin-bottom: 30px;
+    }
+}
+
+/* --- Team page: advisors ---
+   Same left-photo shape as .featured-item.iconleft, with a portrait standing in
+   for the icon. Do NOT reuse .member-designation here — that class is part of the
+   hover reveal on the team grid and starts translated off-screen. */
+.advisor-photo {
+    float: left;
+    width: 120px;
+    margin: 5px 22px 12px 0;
+}
+.advisor-photo img {
+    width: 100%;
+    height: auto;
+}
+.advisor-role {
+    display: block;
+    margin: 4px 0 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #929090;
+}
+
+@media (max-width: 480px) {
+    .advisor-photo {
+        float: none;
+        margin-right: 0;
+    }
+}
+
+/* --- Team page: investors ---
+   The two wordmarks have very different aspect ratios (Laude ~2.9:1, Harper
+   Court ~7.6:1), so they are sized to look equally weighted rather than to a
+   shared height. */
+.funder-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    margin-bottom: 25px;
+}
+.funder-logo img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.funder-laude img {
+    max-height: 62px;
+}
+.funder-harper-court img {
+    max-height: 34px;
+}
+
+/* --- Research page: papers, grants, FAQ --- */
+.paper-item,
+.faq-item,
+.post-item {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.paper-item:last-child,
+.faq-item:last-child,
+.post-item:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+}
+/* On light backgrounds the divider needs to be dark instead. */
+.post-item {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+.paper-title,
+.faq-question,
+.post-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 0 0 10px;
+}
+.paper-meta,
+.post-meta,
+.role-meta {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #929090;
+    margin-bottom: 12px;
+}
+
+/* Papers and the FAQ sit on dark section backgrounds. */
+.blue-bg .paper-title,
+.blue-bg .paper-title a,
+.blue-bg .paper-meta,
+.blue-bg .paper-item p,
+.blue-violet-bg .faq-question,
+.blue-violet-bg .faq-item p {
+    color: #fff;
+}
+.blue-bg .paper-title a:hover {
+    text-decoration: underline;
+}
+
+/* --- Careers roles --- */
+.role-item {
+    text-align: left;
+}
+/* Roles stack in one column, so they need their own gap. */
+.role-item + .role-item {
+    margin-top: 30px;
+}
+
+/* Inline links inside dark section backgrounds. The theme's default link
+   color (#425367) is nearly invisible on .blue-bg and unreadable on the
+   .blue-violet-bg gradient, so force white + underline there. */
+.blue-bg a:not(.btn),
+.blue-violet-bg a:not(.btn),
+.subscription-section a:not(.btn),
+[class*='banner-'] a:not(.btn) {
+    color: #fff;
+    text-decoration: underline;
+}
+.blue-bg a:not(.btn):hover,
+.blue-violet-bg a:not(.btn):hover,
+.subscription-section a:not(.btn):hover,
+[class*='banner-'] a:not(.btn):hover {
+    color: #fff;
+    opacity: 0.8;
+}
+/* ...but the nav overlays the hero banner and must keep its own styling. */
+nav.navbar.bootsnav a,
+nav.navbar.bootsnav a:hover {
+    text-decoration: none;
+}
+/* White cards sitting on a dark section background keep normal link color. */
+.blue-bg .featured-item a:not(.btn),
+.blue-violet-bg .featured-item a:not(.btn) {
+    color: #425367;
+    text-decoration: none;
+}
+.blue-bg .featured-item a:not(.btn):hover,
+.blue-violet-bg .featured-item a:not(.btn):hover {
+    color: #212121;
+}
+
+/* Inline prose links.
+   On light backgrounds the theme's link color (#425367) sits at ~1.4:1 against
+   body text (#666), so a link in a paragraph is indistinguishable from the text
+   around it. WCAG wants 3:1 to differentiate by color alone and nothing in the
+   palette clears that — the brand teal is 1.9:1 on white, unusable as text — so
+   underline instead. Offset off the baseline and kept to 1px so it reads as
+   designed rather than browser-default.
+   Deliberately scoped to prose: nav, footer, card titles and buttons carry
+   their own affordance and must stay clean. Anything wrapped in a <p> that
+   should NOT get an underline needs a .btn class (or a new exception here). */
+p a:not(.btn),
+.check-list a:not(.btn),
+.bio-links a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+p a:not(.btn):hover,
+.check-list a:not(.btn):hover,
+.bio-links a:hover {
+    color: #212121;
+    text-decoration-thickness: 2px;
+}
+/* Match the offset on the dark-background links underlined above, so an inline
+   link looks the same everywhere. */
+.blue-bg a:not(.btn),
+.blue-violet-bg a:not(.btn),
+.subscription-section a:not(.btn),
+[class*='banner-'] a:not(.btn) {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+.blue-bg .featured-item a:not(.btn):hover,
+.blue-violet-bg .featured-item a:not(.btn):hover {
+    text-decoration-thickness: 2px;
+}
+
+/* Equal-height card rows.
+   Bootstrap 3 rows are floats, so cards in a row end at different heights and
+   the row bottom looks ragged. Add `card-row` to a .row whose columns each
+   hold a single .featured-item to make them stretch to the tallest.
+   (assets/js/equalheight.js does this in JS but is never invoked and expects
+   .equal-height-row/.equal-height-column, which nothing uses.) */
+@media (min-width: 992px) {
+    .row.card-row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .row.card-row > [class*='col-'] {
+        display: flex;
+    }
+    .row.card-row > [class*='col-'] > .featured-item {
+        width: 100%;
+    }
+}
+
+/* Wider prose block.
+   `.section-sub` defaults to 70% width with 70px below it — right for a single
+   standfirst under a heading, too narrow and too airy when a section carries
+   several consecutive paragraphs. Add `wide` to the .section-title-wrapper. */
+.section-title-wrapper.wide .section-sub {
+    margin-bottom: 25px;
+}
+.section-title-wrapper.wide .section-sub:last-child {
+    margin-bottom: 0;
+}
+@media screen and (min-width: 992px) {
+    .section-title-wrapper.wide .section-title {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .section-title-wrapper.wide .section-sub {
+        width: 88%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
