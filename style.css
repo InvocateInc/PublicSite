@@ -1005,6 +1005,13 @@ owl carousel customization
     font-size: 40px;
     line-height: 40px;
 }
+/* SVG tile icons (assets/img/icons/) as an alternative to the flaticon glyph.
+   inline-block, not block, so the icon still centres in a .text-center card. */
+.featured-item .icon img {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+}
 .featured-item .desc h2 {
     font-size: 25px;
 }
@@ -2145,5 +2152,222 @@ p a:not(.btn):hover,
         width: 88%;
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+/* ===================================================================
+   Building-block picker (/how-it-works).
+
+   A sentence with inline <select>s — "I am [a human] and I want to
+   [find overlap] with [an AI agent]" — that filters the nine building
+   blocks below it down to the ones that permutation actually exercises.
+   The permutation -> blocks mapping lives in the inline script at the
+   bottom of that section in template/how-it-works.html.
+
+   Progressive enhancement: the sentence is display:none until the
+   script adds .sb-ready, so with JS off the section is just the nine
+   cards, unfiltered, exactly as it was before.
+
+   The cards are a CSS grid rather than Bootstrap col-md-4 + .card-row.
+   Filtering an arbitrary subset out of three float rows leaves ragged
+   part-filled rows; a single grid reflows and equalises height for free.
+   =================================================================== */
+
+.sentence-builder {
+    display: none;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+}
+.sentence-builder.sb-ready {
+    display: block;
+}
+
+.sb-sentence {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    line-height: 1.9;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+}
+
+/* Keeps a select and the punctuation after it on one line. */
+.sb-nobreak {
+    white-space: nowrap;
+}
+
+/* Off-flow ruler the script measures option labels against. It inherits the
+   sentence's font, so it has to sit inside .sb-sentence, and it must not wrap
+   or the measurement is short. */
+.sb-sizer {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    visibility: hidden;
+    white-space: pre;
+    font: inherit;
+}
+
+/* Inline dropdowns. appearance:none strips the native chrome so the control
+   reads as an underlined blank in the sentence; the chevron is an inline SVG
+   data URI so it needs no asset. Colour alone can't carry "this is editable",
+   hence the underline. */
+.sb-select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.3;
+    color: #66C8B0;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 2px solid rgba(102, 200, 176, 0.55);
+    border-radius: 0;
+    padding: 0 22px 3px 3px;
+    margin: 0 3px;
+    max-width: 100%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%2366C8B0' stroke-width='2' d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 2px center;
+    background-size: 12px 8px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+.sb-select:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+.sb-select:focus-visible {
+    outline: 2px solid #66C8B0;
+    outline-offset: 4px;
+}
+/* The popup list is drawn by the OS and inherits the control's colours, which
+   would leave teal-on-transparent options on some platforms. */
+.sb-select option {
+    color: #212121;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+/* Result bar: how many blocks the permutation lands on, where to read more,
+   and the way back to all nine. */
+.sb-result {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+}
+.sb-result .sb-count {
+    color: #fff;
+}
+.sb-result a.sb-link,
+.sb-result button.sb-reset {
+    color: #fff;
+    white-space: nowrap;
+}
+.sb-result .sb-sep {
+    padding: 0 10px;
+    color: rgba(255, 255, 255, 0.35);
+}
+.sb-result button.sb-reset {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+.sb-result button.sb-reset:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* The nine cards. */
+.block-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+.block-card {
+    display: flex;
+}
+/* The icon drops into the body copy and the text wraps around it — a plain
+   left float, which needs the icon to come after the h2 in source order. That
+   is why the icon div lives inside .desc on these cards rather than before it
+   as everywhere else. .featured-item already sets overflow:hidden, so the
+   float is contained and cannot escape the card. */
+.block-card > .featured-item {
+    width: 100%;
+    padding: 30px;
+}
+.block-card .icon {
+    float: left;
+    margin: 4px 16px 2px 0;
+}
+.block-card .featured-item .icon img {
+    width: 100px;
+    height: 100px;
+}
+.block-card .desc h2 {
+    font-size: 19px;
+    line-height: 26px;
+    margin: 0 0 14px;
+}
+.block-card .desc p {
+    margin: 0;
+}
+.block-card[hidden] {
+    display: none;
+}
+
+@media (max-width: 991px) {
+    .block-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .sb-sentence {
+        font-size: 23px;
+    }
+}
+/* Narrow enough that the result bar wraps: the pipes strand at the end of a
+   line, so drop them and stack the count above the two actions instead. */
+@media (max-width: 767px) {
+    .sb-result .sb-sep {
+        display: none;
+    }
+    .sb-result .sb-count {
+        display: block;
+        margin-bottom: 6px;
+    }
+    .sb-result a.sb-link {
+        margin-right: 18px;
+    }
+}
+@media (max-width: 600px) {
+    .block-grid {
+        grid-template-columns: 1fr;
+    }
+    .sb-sentence {
+        font-size: 20px;
+        line-height: 2.1;
+    }
+}
+
+/* Re-fade the surviving cards on every change, so a filter that only drops
+   one card still registers as something happening. The class is removed and
+   re-added by the script, which restarts the animation. */
+@keyframes sbFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+}
+.block-grid.sb-enter .block-card:not([hidden]) {
+    animation: sbFadeIn 0.35s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+    .block-grid.sb-enter .block-card:not([hidden]) {
+        animation: none;
     }
 }
