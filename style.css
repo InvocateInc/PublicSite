@@ -594,6 +594,10 @@ img {
     background-image: url("assets/img/careers.jpg");
 }
 
+.banner-agentic-data-market {
+    background-image: url("assets/img/market.jpg");
+}
+
 /* Solution pages */
 .banner-content-monetization {
     background-image: url("assets/img/content-monetization.jpg");
