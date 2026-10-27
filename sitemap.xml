@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Hand-maintained. Add an entry whenever a new indexable page is added
-     under template/. Excludes /landing, /thanks and /learn, which are
+     under template/. Excludes /landing, /thanks, /learn and /call, which are
      noindex. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://invocate.com/</loc><priority>1.0</priority></url>
